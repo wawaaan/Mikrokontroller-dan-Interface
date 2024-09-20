@@ -1,0 +1,55 @@
+const int buttonPin = 5;   // Pin untuk tombol
+const int greenLedPin = 2; // Pin untuk LED hijau
+const int YellowLedPin = 3;  // Pin untuk LED biru
+const int redLedPin = 4;   // Pin untuk LED merah
+const int buttonPinBiru = 6;   // Pin untuk LED merah
+
+int ledState = 0;  // Variabel untuk melacak status LED
+
+void setup() {
+  pinMode(buttonPin, INPUT);      // Mengatur pin tombol sebagai input
+  pinMode(greenLedPin, OUTPUT);   // Mengatur pin LED hijau sebagai output
+  pinMode(YellowLedPin, OUTPUT);    // Mengatur pin LED biru sebagai output
+  pinMode(redLedPin, OUTPUT);     // Mengatur pin LED merah sebagai output
+}
+
+void loop() {
+ if (digitalRead(buttonPin) == HIGH) {  // Cek jika tombol ditekan
+    delay(100);  // Debouncing sederhana dengan delay 100ms
+    
+    if (digitalRead(buttonPin) == HIGH) {  // Pastikan tombol masih ditekan
+      ledState = 1;  // Melakukan penambahan status LED
+      
+      if (ledState > 2) {
+        ledState = 0;  // Kembali ke status awal jika melewati tiga LED
+      }
+
+    
+      switch (ledState) {
+        case 1:
+          digitalWrite(greenLedPin, LOW);  // LED hijau menyala
+          digitalWrite(YellowLedPin, LOW);    // LED biru mati
+          digitalWrite(redLedPin, HIGH);
+          delay(250);     // LED merah mati
+
+          digitalWrite(greenLedPin, LOW);   // LED hijau mati
+          digitalWrite(YellowLedPin, HIGH);    // LED biru menyala
+          digitalWrite(redLedPin, LOW);      // LED merah mati
+          delay(250);
+
+          digitalWrite(greenLedPin, HIGH);   // LED hijau mati
+          digitalWrite(YellowLedPin, LOW);     // LED biru mati
+          digitalWrite(redLedPin, LOW);    // LED merah menyala
+          delay(250);
+          
+          digitalWrite(greenLedPin, LOW);   // LED hijau mati
+          digitalWrite(YellowLedPin, LOW);     // LED biru mati
+          digitalWrite(redLedPin, LOW);    // LED merah menyala
+
+
+          break;
+       
+      }
+    }
+  }
+}
