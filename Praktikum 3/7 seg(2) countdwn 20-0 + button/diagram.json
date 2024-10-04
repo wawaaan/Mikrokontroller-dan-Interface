@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-7segment",
+      "id": "sevseg1",
+      "top": -139.02,
+      "left": 331.48,
+      "attrs": { "common": "cathode" }
+    },
+    {
+      "type": "wokwi-7segment",
+      "id": "sevseg3",
+      "top": -158.22,
+      "left": 101.08,
+      "attrs": { "common": "cathode" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -38.5,
+      "left": 483.5,
+      "rotate": 90,
+      "attrs": { "color": "green" }
+    }
+  ],
+  "connections": [
+    [ "sevseg3:A", "uno:2", "green", [ "v-18.36", "h105.6", "v181.8" ] ],
+    [ "sevseg3:B", "uno:3", "gold", [ "v-27.96", "h83" ] ],
+    [ "sevseg3:C", "uno:4", "white", [ "v9.6", "h28.8" ] ],
+    [ "sevseg3:D", "uno:5", "cyan", [ "v19.2", "h28.8" ] ],
+    [ "sevseg3:E", "uno:6", "white", [ "v28.8", "h38.4" ] ],
+    [ "sevseg3:F", "uno:7", "orange", [ "v-8.76", "h-38.4", "v115.2", "h112.2" ] ],
+    [ "sevseg3:G", "uno:8", "#8f4814", [ "v0.84", "h-19.2", "v124.8", "h86.6" ] ],
+    [ "sevseg1:A", "uno:9", "limegreen", [ "v-18.36", "h19.2", "v144", "h-67.4" ] ],
+    [ "sevseg1:B", "uno:10", "purple", [ "v-8.76", "h28.8", "v144", "h-96.1" ] ],
+    [ "sevseg1:C", "uno:11", "cyan", [ "v67.2", "h38.4" ] ],
+    [ "sevseg1:F", "uno:A0", "yellow", [ "v-18.36", "h-28.8", "v297.6", "h153.6" ] ],
+    [ "sevseg1:G", "uno:A1", "white", [ "v-27.96", "h-105.6", "v288", "h-12.9" ] ],
+    [ "sevseg1:COM.1", "uno:GND.1", "black", [ "h0", "v28.8", "h19.2" ] ],
+    [ "sevseg3:COM.1", "uno:GND.1", "black", [ "v19.2", "h-19.2", "v76.2" ] ],
+    [ "btn1:2.r", "uno:GND.3", "black", [ "v182.6", "h-320.4" ] ],
+    [ "btn1:2.l", "uno:A2", "orange", [ "h-38.6", "v181.9" ] ],
+    [ "sevseg1:E", "uno:13", "cyan", [ "v48", "h-211" ] ],
+    [ "uno:5V", "btn1:1.l", "red", [ "v58.1", "h416", "v-220.8" ] ],
+    [
+      "sevseg1:D",
+      "uno:12",
+      "white",
+      [ "v19.2", "h-86.4", "v-48", "h-105.6", "v86.4", "h-19.2" ]
+    ]
+  ],
+  "dependencies": {}
+}
